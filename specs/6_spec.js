@@ -6,7 +6,6 @@ describe('Protractor Demo App1', function() {
     element(by.model('yourName')).sendKeys('Example');
 
     var greeting = element(by.binding('yourName'));
-    // The test will fail here.
-    expect(greeting.getText()).toEqual('Hello Example!!');
+    expect(greeting.getText()).toEqual('Hello Example!');
   });
 });

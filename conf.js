@@ -11,7 +11,7 @@ exports.config = {
         var caps = browser.getCapabilities();
     },
 
-    multiCapabilities: [{
+    multiCapabilities: [/*{
         testobject_api_key: process.env.TESTOBJECT_API_KEY,
         testobject_device: 'Google_Pixel_real',
         testobject_test_name: Date.now() + " - Static",
@@ -31,8 +31,40 @@ exports.config = {
         browserName: 'chrome',
         shardTestFiles: true,
         maxInstances: 3
-    },
-    // add more configurations here
+    },*/
+    {
+        testobject_api_key: process.env.TESTOBJECT_API_KEY,
+        testobject_test_name: Date.now() + " - With XCUITest automationName",
+        testobject_cache_device: "false",
+        testobject_suite_name: "Dynamic device allocation",
+        automationName: "XCUITest",
+        platformName: "iOS",
+        platformVersion: "10",
+        browserName: 'safari',
+        shardTestFiles: true,
+        maxInstances: 3
+    }, {
+        testobject_api_key: process.env.TESTOBJECT_API_KEY,
+        testobject_test_name: Date.now() + " - Without automationName",
+        testobject_cache_device: "false",
+        testobject_suite_name: "Dynamic device allocation",
+        platformName: "iOS",
+        platformVersion: "10",
+        browserName: 'safari',
+        shardTestFiles: true,
+        maxInstances: 3
+    }, {
+       testobject_api_key: process.env.TESTOBJECT_API_KEY,
+       testobject_test_name: Date.now() + " - With appium automationName",
+       testobject_cache_device: "false",
+       testobject_suite_name: "Dynamic device allocation",
+       platformName: "iOS",
+       platformVersion: "10",
+       browserName: 'safari',
+       shardTestFiles: true,
+       maxInstances: 3
+   },
+// add more configurations here
     ],
 
     onComplete: function(result) {
